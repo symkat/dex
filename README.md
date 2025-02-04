@@ -9,6 +9,30 @@ Similar in functionality to **make**, with a much simpler YAML file to define yo
 
 ## Installation
 
+### Install binary from releases
+
+1. Download the latest version [from the releases page](https://github.com/symkat/dex/releases).
+2. Unpack and copy dex to /usr/local/bin, as shown below.
+
+```
+$ tar -xzf dex_*.tar.gz
+$ sudo cp dex /usr/local/bin/dex
+```
+
+### Build & install from source
+```
+$ git clone https://github.com/symkat/dex.git
+$ cd dex
+$ go build -o dex main.go
+$ sudo cp dex /usr/local/bin/dex
+```
+
+### User-only installation
+
+Each of the above installation methods will make **dex** available for all users on the system, but requires root permission.
+
+You can also copy **dex** into ~/bin and make sure that ~/bin is in your $PATH by adding `export PATH="$HOME/bin:$PATH"` to your `~/.bashrc` or `~/.bash_profile` file and restarting your terminal or running `source ~/.bashrc`.
+
 ## DexFile
 
 The commands for your project directory are stored in a DexFile, **dex** will check for commands defined in `dex.yaml`, `dex.yml`, `.dex.yaml`, or `.dex.yml` in the current directory.  The first one of these files found is the one used.
