@@ -141,7 +141,7 @@ func Run(dexFile DexFile2, args []string) {
 
 	/* No commands were found from the arguments the user passed: show error, menu and exit */
 	if err != nil {
-		fmt.Fprint(os.Stderr, err.Error())
+		fmt.Fprint(os.Stderr, err.Error()+"\n")
 		displayMenu(os.Stderr, dexFile.Blocks, 0)
 		os.Exit(1)
 	}
@@ -159,7 +159,7 @@ func initBlockFromPath(dexFile DexFile2, blockPath []string) (Block, error) {
 	block, err := resolveCmdToCodeblock(dexFile.Blocks, blockPath)
 
 	if err != nil {
-		return Block{}, fmt.Errorf("error: No commands were found at %v\n\nSee the menu", blockPath[1:])
+		return Block{}, fmt.Errorf("error: No commands were found at %v\n\nSee the menu", blockPath)
 	}
 
 	/* Found block.  Init variables, set defaults and process the
